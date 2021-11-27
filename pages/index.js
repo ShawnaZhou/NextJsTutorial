@@ -1,7 +1,8 @@
-import Head from "next/head";
 import Link from "next/link";
-import { getSortedPostsData } from "../lib/posts";
+import Head from "next/head";
 
+import { getSortedPostsData } from "../lib/posts";
+import { Header, P1 } from "../components/index";
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
   return {
@@ -13,10 +14,13 @@ export async function getStaticProps() {
 
 export default function Home({ allPostsData }) {
   return (
-    <div className="container">
-      <Link href="/posts/first-post">
-        <h3>Go to post</h3>
-      </Link>
+    <div style={{ width: "100%", height: "100%", padding: 0 }}>
+      <Head>
+        <title> Shawn's Homepage </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
+      <Header />
+      <P1 />
     </div>
   );
 }
